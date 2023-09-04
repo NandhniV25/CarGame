@@ -14,6 +14,7 @@ namespace CarGame
         Random random = new Random();
         Car UserCar;
         List<Car> EnemyCar = new List<Car>();
+        Car Fuel;
 
         //Board Constructor
         public Board(int width, int height)
@@ -21,6 +22,7 @@ namespace CarGame
             this.width = width;
             this.height = height;
             this.UserCar = new Car(width / 2, height - 1, '*', ConsoleColor.DarkGreen);
+            this.Fuel = new Car(random.Next(width), 0, '@', ConsoleColor.DarkYellow);
         }
 
         //Board Methods
@@ -90,6 +92,25 @@ namespace CarGame
                     }
                 }
                 EnemyCar.RemoveAll(item => item.y == height);
+
+                Fuel.Clear();
+                Fuel.MoveDown();
+                if (Fuel.y != height)
+                {
+                    Fuel.Print();
+                }
+                else if (Fuel.x == UserCar.x)
+                {
+                    points += 20;
+                    Fuel = new Car(random.Next(width), 0, '@', ConsoleColor.DarkYellow);
+                }
+                else
+                {
+                    Fuel.Clear();
+                    Fuel = new Car(random.Next(width), 0, '@', ConsoleColor.DarkYellow);
+                }
+
+                UserCar.Print();
                 Thread.Sleep(500);
             }
         }
