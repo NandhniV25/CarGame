@@ -1,11 +1,13 @@
 ### CarGame
-It is a classic Tetris Game written in .Net console.
+It is a classic Car Game written in .Net console.
 
-![Tetris Game](https://raw.githubusercontent.com/NandhniV25/TetrisGame/main/TetrisGameGif.gif)
+![Car Game](https://raw.githubusercontent.com/NandhniV25/CarGame/main/CarGameGif.gif)
 
 ### Game Rules
-* We have some different shapes which are falling from top to bottom
-* As long as, the object is not interfered by any other object it will fall in.
-* If it touches other object, it will become static object.
-* Once we complete one full row with blocks, that row will be deleted and we get points.
-* All the blocks which are above the deleted row will come down one step.
+* The UserCar is placed on the bottom of the board and we can move left and right sides. 
+* We have some random enemy cars that are falling from top to bottom.
+* If it touches the bottom of the board and does not interfere with UserCar, we will get points.
+* If it touches the bottom of the board and interferes with UserCar, the game is over.
+* And also we have fuel that is falling from top to bottom.
+* If it reaches the bottom of the board and touches the UserCar, we will get points.
+* If it reaches the bottom of the board and does not touch the UserCar, it will generate new fuel on the top of the board.
